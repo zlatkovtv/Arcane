@@ -1,0 +1,39 @@
+#main-container {
+    min-height: calc(100% - 64px);
+    width: 100%;
+    top: 64px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #eeeeee;
+}
+
+#main-toolbar {
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+}
+
+@media (max-width: 599px) {
+    #main-container {
+        top: 56px;
+    }
+}
+
+@media (min-width: 599px) {
+    #main-container {
+        max-height: calc(100% - 64px) !important;
+    }
+}
+
+#news-container {
+    overflow-y: auto;
+}
+
+#sun-image {
+    background-image: url('../../assets/sun.png');
+    width: 120px;
+    height: 200%;
+    min-height: 100px;
+    margin: -24px;
+}
