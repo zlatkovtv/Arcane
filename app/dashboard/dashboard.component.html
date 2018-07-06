@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav">
+	<mat-sidenav #sidenav mode="over" [(opened)]="opened">
+		Sidenav content
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary" class="mat-elevation-z4 flex" id="main-toolbar">
+			<mat-toolbar-row>
+				<button mat-icon-button>
+					<i class="material-icons" (click)="popSideMenu()">menu</i>
+				</button>
+				<span class="flex-fill">Arcane</span>
+				<button mat-icon-button>
+					<i class="material-icons" (click)="goToSearch()">search</i>
+				</button>
+			</mat-toolbar-row>
+		</mat-toolbar>
+		<div id="main-container" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px">
+			<div fxLayout="column" fxFlex="70" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px">
+				<mat-card fxFlex="20" fxLayout="row" fxLayoutAlign="space-between center" id="welcome-container">
+					<div id="sun-image" class="image">
+
+					</div>
+					<span class="mat-title">Welcome, weary traveler!</span>
+				</mat-card>
+				<div fxLayout="row" fxFlex="60" fxLayout.xs="column" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px">
+					<mat-card fxFlex="33">
+						Task list
+					</mat-card>
+					<mat-card fxFlex="33">
+						Weather
+					</mat-card>
+					<app-crypto class="mat-card scrollable" fxFlex="33">
+
+					</app-crypto>
+				</div>
+				<app-spotify class="mat-card" fxFlex="20" fxLayout="row" fxLayoutAlign="center center" id="spotify-player-container">
+
+				</app-spotify>
+			</div>
+			<app-news class="scrollable mat-card" fxFlex="30">
+
+			</app-news>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>
