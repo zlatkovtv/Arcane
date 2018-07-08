@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatSidenavModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -11,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { NewsComponent } from './news/news.component';
 import { SpotifyComponent } from './spotify/spotify.component';
+import { CryptoComponent } from './crypto/crypto.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { SpotifyComponent } from './spotify/spotify.component';
     LoginComponent,
     SearchComponent,
     NewsComponent,
-    SpotifyComponent
+    SpotifyComponent,
+    CryptoComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { SpotifyComponent } from './spotify/spotify.component';
   MatButtonModule,
   HttpClientModule,
   MatListModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

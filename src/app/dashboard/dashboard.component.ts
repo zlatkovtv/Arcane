@@ -7,15 +7,20 @@ import {Router} from "@angular/router";
 	styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+	opened: boolean = false;
 
 	constructor(private router: Router) 
 	{
 	}
-
+  
 	ngOnInit() {
 	}
 
 	goToSearch() {
 		this.router.navigate(['/search']);
+	}
+
+	popSideMenu() {
+		this.opened = !this.opened;
 	}
 }

@@ -1,8 +1,8 @@
-<button mat-fab id="spotify-play-button" [disabled]="!isSpotifyEnabled">
+<button mat-fab id="spotify-play-button" *ngIf="isSpotifyEnabled">
   <i class="material-icons">play_arrow</i>
 </button>
 <div *ngIf="isLoading" class="spinner-container">
-  <mat-progress-spinner [color]="primary" [mode]="'indeterminate'">
+  <mat-progress-spinner [color]="primary" [diameter]="50" [mode]="'indeterminate'">
   </mat-progress-spinner>
 </div>
 <button (click)="login()" color="warn" class="bg-spotify" *ngIf="!isSpotifyEnabled && !isLoading" mat-raised-button>Login to Spotify</button>
