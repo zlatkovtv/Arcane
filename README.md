@@ -1,6 +1,6 @@
 # Arcane
 
-![alt text](https://imgur.com/a/H68osEf)
+![alt text](https://i.imgur.com/WjhuD0r.jpg)
 
 ## Development server
 
