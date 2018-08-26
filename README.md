@@ -1,4 +1,4 @@
-# Arcane
+# Arcane - a dashboard for the modern millennial
 
 ![alt text](https://i.imgur.com/WjhuD0r.jpg)
 
