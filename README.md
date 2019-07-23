@@ -1,6 +1,6 @@
-# Arcane
+# [In development] Arcane - a dashboard for the modern millennial
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+![alt text](https://i.imgur.com/WjhuD0r.jpg)
 
 ## Development server
 
