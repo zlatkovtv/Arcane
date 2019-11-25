@@ -6,7 +6,7 @@ import { CoinData } from '../coindata'
 @Component({
 	selector: 'app-crypto',
 	templateUrl: './crypto.component.html',
-	styleUrls: ['./crypto.component.css']
+	styleUrls: ['./crypto.component.scss']
 })
 export class CryptoComponent implements OnInit {
 	coinData: CoinData[];
@@ -18,7 +18,7 @@ export class CryptoComponent implements OnInit {
 	}
 
 	getCoinPrices() {
-		this.commonService.getCoinPrices().subscribe(
+		this.commonService.getCoinData().subscribe(
 			coinDataContainer => {
 				this.coinData = Object.values(coinDataContainer.data);
 			},

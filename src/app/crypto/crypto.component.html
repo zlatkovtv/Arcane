@@ -1,3 +1,7 @@
-<p *ngFor="let coin of coinData">
-  {{coin.name}} - {{coin.quotes.USD.price}} USD
-</p>
+<div id="crypto-container" fxLayout="row wrap" fxLayout.sm="column" fxLayoutAlign="space-around space-around">
+	<app-coin-info class="mat-card" *ngFor="let coin of coinData" [coinData]="coin" fxFlex="calc(50% - 20px)">
+	</app-coin-info>
+</div>
+<!-- <mat-card-actions id="crypto-buttons">
+    <i class="material-icons">info</i>
+</mat-card-actions> -->

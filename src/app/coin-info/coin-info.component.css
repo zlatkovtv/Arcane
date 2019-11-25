@@ -1,0 +1,16 @@
+.coin-image {
+    margin: 16px auto;
+    height: 64px;
+    width: 64px;
+}
+
+.coin-price {
+    background-color: white;
+    color: #9C9C9C;
+    padding: 5px;
+    position: absolute;
+    bottom: 5px;
+    width: 90px;
+    left: calc(50% - 45px);
+    box-sizing: border-box;
+}

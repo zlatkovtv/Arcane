@@ -1,0 +1,5 @@
+<!-- <i class="fab fa-{{coinData.name | lowercase}}"></i> -->
+<img class="coin-image" src="assets/icons/{{coinData.symbol | lowercase}}.svg" />
+<mat-card class="coin-price">
+    {{coinData.quote.USD.price | currency :'USD':'symbol':'1.2-2'}}
+</mat-card>

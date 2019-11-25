@@ -1,0 +1,45 @@
+@import '../../_variables';
+
+.article-text {
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.article-picture {
+    padding: 0px;
+    height: 300px;
+    height: 100%;
+}
+
+.article-inner-picture {
+    width: 100%;
+}
+
+.article-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+#news-settings {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    color: white;
+    background-color: $color-primary;
+}
+
+.news-button {
+    color: black;
+    background-color: white;
+    position: absolute;
+    top: calc(50% - 32px);
+    z-index: 1000;
+}
+
+#news-prev {
+    left: 16px;
+}
+
+#news-next {
+    right: 16px;
+}

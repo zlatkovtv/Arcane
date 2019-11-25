@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatSidenavModule, MatIconModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,8 @@ import { SearchComponent } from './search/search.component';
 import { NewsComponent } from './news/news.component';
 import { SpotifyComponent } from './spotify/spotify.component';
 import { CryptoComponent } from './crypto/crypto.component';
+import { WeatherComponent } from './weather/weather.component';
+import { CoinInfoComponent } from './coin-info/coin-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CryptoComponent } from './crypto/crypto.component';
     SearchComponent,
     NewsComponent,
     SpotifyComponent,
-    CryptoComponent
+    CryptoComponent,
+    WeatherComponent,
+    CoinInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { CryptoComponent } from './crypto/crypto.component';
   MatListModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
+  MatIconModule,
   BrowserAnimationsModule
   ],
   providers: [],

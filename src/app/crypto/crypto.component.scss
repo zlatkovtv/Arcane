@@ -1,0 +1,18 @@
+@import '../../__variables.scss';
+
+app-coin-info {
+    background-color: $color-primary;
+    color: white;
+    margin: 10px;
+    text-align: center;
+    padding: 5px;
+    height: calc(28%);
+}
+
+#crypto-container {
+    height: 100%;
+}
+
+#crypto-buttons {
+    padding: 8px;
+}

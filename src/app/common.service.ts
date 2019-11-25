@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ArticleContainer } from './article';
 import { CoindataContainer } from './coindata';
+import { Weather } from './weather';
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,12 +18,18 @@ export class CommonService {
 	constructor(private http: HttpClient) { }
 
 	getArticles(): Observable<ArticleContainer> {
-		var url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=a27a93737fea40a98aeb5b31071bf2d1";
+		// var url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=eea0cad5f1cc448c9e742ca8dec8061d";
+		var url = "http://localhost:5000/api/news"
 		return this.http.get<ArticleContainer>(url, {});
 	}
 
-	getCoinPrices(): Observable<CoindataContainer> {
-		var url = "https://api.coinmarketcap.com/v2/ticker/?limit=10";
+	getCoinData(): Observable<CoindataContainer> {
+		var url = "http://localhost:5000/api/crypto";
 		return this.http.get<CoindataContainer>(url, {});
+	}
+
+	getWeather(): Observable<Weather> {
+		var url = "http://localhost:5000/api/weather";
+		return this.http.get<Weather>(url, {});
 	}
 }

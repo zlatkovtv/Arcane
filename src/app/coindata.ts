@@ -12,7 +12,7 @@ export interface CoinData {
     circulating_supply: number;
     total_supply:       number;
     max_supply:         number | null;
-    quotes:             Quotes;
+    quote:              Quotes;
     last_updated:       number;
 }
 

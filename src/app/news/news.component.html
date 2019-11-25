@@ -1,10 +1,32 @@
 <div *ngIf="articles != null">
-    <span>News</span>
-    <div *ngFor="let article of articles">
-        <div class="article-text">{{article.title}}</div>
-        <!-- <div class="article-picture" [style.backgroundImage]="'url('+ article.urlToImage + ')'">
-        </div> -->
-        <mat-divider></mat-divider>
+    <button mat-fab id="news-settings">
+        <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-fab id="news-prev" class="news-button" (click)="cycleNews(false)">
+            <mat-icon>arrow-left</mat-icon>
+    </button>
+    <button mat-fab id="news-next" class="news-button" (click)="cycleNews(true)">
+            <mat-icon>arrowRight</mat-icon>
+    </button>
+    <h2>Extra extra, read all about it</h2>
+    <!-- <div *ngFor="let article of articles"> -->
+    <div>
+                <div class="author-info">
+            <!-- <img src={{}} /> -->
+            <div>
+                <b class="author-name">{{currentArticle.author}}</b>
+                <p class="author-company">{{currentArticle.source.name}}</p>
+            </div>
+        </div>
+        <div class="article-picture mat-card">
+            <img src={{currentArticle.urlToImage}} class="article-inner-picture" />
+        </div>
+        <h2 class="article-text">{{currentArticle.title}}</h2>
+        <div class="article-text">{{currentArticle.content}}</div>
+        <div class="article-actions">
+            <button mat-flat-button>Like</button>
+            <button mat-flat-button><mat-icon>star</mat-icon>Add to favourites</button>
+        </div>
     </div>
 </div>
 
