@@ -3,10 +3,10 @@
         <mat-icon>settings</mat-icon>
     </button>
     <button mat-fab id="news-prev" class="news-button" (click)="cycleNews(false)">
-            <mat-icon>arrow-left</mat-icon>
+            <mat-icon>arrow_back</mat-icon>
     </button>
     <button mat-fab id="news-next" class="news-button" (click)="cycleNews(true)">
-            <mat-icon>arrowRight</mat-icon>
+            <mat-icon>arrow_forward</mat-icon>
     </button>
     <h2>Extra extra, read all about it</h2>
     <!-- <div *ngFor="let article of articles"> -->
@@ -24,8 +24,8 @@
         <h2 class="article-text">{{currentArticle.title}}</h2>
         <div class="article-text">{{currentArticle.content}}</div>
         <div class="article-actions">
-            <button mat-flat-button>Like</button>
-            <button mat-flat-button><mat-icon>star</mat-icon>Add to favourites</button>
+            <button mat-flat-button><mat-icon>thumb_up</mat-icon>Like</button>
+            <button mat-flat-button (click)="addToFavourites()"><mat-icon>star</mat-icon>Add to favourites</button>
         </div>
     </div>
 </div>

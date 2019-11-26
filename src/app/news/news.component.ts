@@ -46,4 +46,26 @@ export class NewsComponent implements OnInit {
 
 		this.currentArticle = this.articles[this.currentIndex];
 	}
+
+	addToFavourites() 
+	{
+		var newsAction = {
+			userId: 0,
+			newsHash: this.hashString(this.currentArticle.title)
+		};
+
+		this.commonService.addNewsToFavourites(newsAction).subscribe(
+			newsAction => {
+				alert('added');
+			},
+			error => {
+				console.log(error);
+			}
+		)
+	}
+
+	private hashString(input: string) {
+		return Array.from(input)
+			.reduce((s, c) => Math.imul(31, s) + c.charCodeAt(0) | 0, 0)
+	}
 }

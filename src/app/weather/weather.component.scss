@@ -1,0 +1,23 @@
+@import '../../_variables';
+
+#weather-image, #weather-image > img {
+    width: 100%;
+}
+
+#weather-image {
+}
+
+#weather-image > img {
+    border-radius: 4px;
+}
+
+#weather-today {
+    width: 75%;
+    margin: -25px auto 20px auto;
+}
+
+.weather-day {
+    background-color: $color-primary;
+    margin-bottom: 10px;
+    color: white;
+}

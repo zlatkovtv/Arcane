@@ -1,1 +1,18 @@
 <!-- <p>{{weatherData.city.name}} - </p> -->
+<div id="weather-header">
+    <div id="weather-image">
+        <img src="assets/leaves.jpg" />
+        <div class="mat-card" id="weather-today">
+            <b>{{city}}, {{country}}</b>
+            <p>{{today.description}}</p>
+            <span>{{today.temperature | number:'1.2-2'}}</span>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="weather-day mat-card" *ngFor="let day of next3Days">
+        <span>{{day.temperature | number:'1.2-2'}}</span>
+        <!-- <span></span>
+        <span></span> -->
+    </div>
+</div>

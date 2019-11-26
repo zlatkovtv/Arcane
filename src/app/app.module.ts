@@ -15,6 +15,7 @@ import { SpotifyComponent } from './spotify/spotify.component';
 import { CryptoComponent } from './crypto/crypto.component';
 import { WeatherComponent } from './weather/weather.component';
 import { CoinInfoComponent } from './coin-info/coin-info.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CoinInfoComponent } from './coin-info/coin-info.component';
     SpotifyComponent,
     CryptoComponent,
     WeatherComponent,
-    CoinInfoComponent
+    CoinInfoComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
