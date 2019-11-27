@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
 
+const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 @Component({
 	selector: 'app-weather',
 	templateUrl: './weather.component.html',
@@ -24,24 +25,12 @@ export class WeatherComponent implements OnInit {
 				console.log(data);
 				this.city = data.city.name;
 				this.country = data.city.country;
-				this.today = {
-					temperature: data.list[0].main.temp - 273.15,
-					description: data.list[0].weather[0].main
-				};
+				this.today = this.buildDay(data.list[0]);
 				
 				this.next3Days = [
-					{
-						temperature: data.list[1].main.temp - 273.15,
-						description: data.list[1].weather[0].main
-					},
-					{
-						temperature: data.list[2].main.temp - 273.15,
-						description: data.list[2].weather[0].main
-					},
-					{
-						temperature: data.list[3].main.temp - 273.15,
-						description: data.list[3].weather[0].main
-					}
+					this.buildDay(data.list[1]),
+					this.buildDay(data.list[2]),
+					this.buildDay(data.list[3])
 				];
 			},
 			error => {
@@ -50,4 +39,19 @@ export class WeatherComponent implements OnInit {
 		);
 	}
 
+	private buildDay(dayInfo: any) {
+		return {
+			temperature: dayInfo.main.temp - 273.15,
+			description: dayInfo.weather[0].main,
+			getIconUrl() {
+				return `http://openweathermap.org/img/wn/${dayInfo.weather[0].icon}@2x.png`;
+			},
+			getDayOfWeek() {
+				var date: Date = new Date(dayInfo.dt_txt);
+				var dayOfWeek = DAYS[date.getDay()];
+				console.log(dayOfWeek);
+				return dayOfWeek;
+			}
+		}
+	}
 }

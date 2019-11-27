@@ -4,7 +4,15 @@
     width: 100%;
 }
 
-#weather-image {
+.weather-icon {
+    display: inline-block;
+    height: 64px;
+    width: 64px;
+}
+
+.weather-icon > img {
+    height: 100%;
+    width: 100%;
 }
 
 #weather-image > img {
@@ -20,4 +28,11 @@
     background-color: $color-primary;
     margin-bottom: 10px;
     color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.degrees {
+    font-size: 2em;
 }
