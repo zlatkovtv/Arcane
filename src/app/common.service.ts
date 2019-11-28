@@ -19,9 +19,12 @@ const WEATHER_PATH = "http://localhost:5000/api/weather";
 export class CommonService {
 	constructor(private http: HttpClient) { }
 
-	getArticles(): Observable<ArticleContainer> {
-		// var url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=eea0cad5f1cc448c9e742ca8dec8061d";
-		return this.http.get<ArticleContainer>(NEWS_PATH, {});
+	getArticles(source: string): Observable<ArticleContainer> {
+		return this.http.get<ArticleContainer>(NEWS_PATH + "/" + source, {});
+	}
+
+	getNewsSources(): Observable<any> {
+		return this.http.get<any>(NEWS_PATH + "/sources", {});
 	}
 
 	getCoinData(): Observable<CoindataContainer> {

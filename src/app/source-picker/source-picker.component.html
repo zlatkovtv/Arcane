@@ -1,0 +1,5 @@
+<mat-nav-list>
+    <a *ngFor="let source of sources" mat-list-item (click)="pickSource(source.id)">
+      <span mat-line>{{source.name}}</span>
+    </a>
+  </mat-nav-list>

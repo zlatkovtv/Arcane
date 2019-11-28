@@ -13,7 +13,6 @@ export class CoinInfoComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
-		console.log(this.coinData);
 	}
 
 }

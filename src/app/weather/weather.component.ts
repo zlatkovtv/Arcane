@@ -22,7 +22,6 @@ export class WeatherComponent implements OnInit {
 	getWeather() {
 		this.commonService.getWeather().subscribe(
 			data => {
-				console.log(data);
 				this.city = data.city.name;
 				this.country = data.city.country;
 				this.today = this.buildDay(data.list[0]);
@@ -49,7 +48,6 @@ export class WeatherComponent implements OnInit {
 			getDayOfWeek() {
 				var date: Date = new Date(dayInfo.dt_txt);
 				var dayOfWeek = DAYS[date.getDay()];
-				console.log(dayOfWeek);
 				return dayOfWeek;
 			}
 		}
