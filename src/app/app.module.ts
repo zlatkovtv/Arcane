@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, MatSidenavModule, MatIconModule, MatBottomSheetModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, 
+	MatSidenavModule, MatIconModule, MatBottomSheetModule, MatDialogModule, MatInputModule, MatCheckboxModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -37,11 +39,11 @@ import { SourcePickerComponent } from './source-picker/source-picker.component';
 		RouterModule.forRoot([
 			{
 				path: '',
-				redirectTo: '/Dashboard',
+				redirectTo: '/dashboard',
 				pathMatch: 'full'
 			},
 			{
-				path: 'Dashboard',
+				path: 'dashboard',
 				component: DashboardComponent
 			},
 			{
@@ -59,7 +61,11 @@ import { SourcePickerComponent } from './source-picker/source-picker.component';
 		MatSidenavModule,
 		MatIconModule,
 		MatBottomSheetModule,
-		BrowserAnimationsModule
+		MatDialogModule,
+		MatInputModule,
+		MatCheckboxModule,
+		BrowserAnimationsModule,
+		FormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],

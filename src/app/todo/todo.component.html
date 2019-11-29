@@ -1,3 +1,16 @@
 <h2>Good morning, user!</h2>
 <p>Go ahead and get some money!</p>
-<div></div>
+<div>
+	<div *ngFor="let todo of todos; let i = index">
+		<mat-checkbox class="todo-checkbox" (click)="completeTodo(i)">{{todo}}</mat-checkbox>
+	</div>
+</div>
+
+<form class="example-form">
+	<mat-form-field>
+		<input matInput placeholder="Create new todo" name="newTodo" [(ngModel)]="newTodo">
+	</mat-form-field>
+	<button mat-flat-button (click)="createTodo()">
+		<mat-icon>check</mat-icon>
+	</button>
+</form>

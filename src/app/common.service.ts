@@ -31,8 +31,8 @@ export class CommonService {
 		return this.http.get<CoindataContainer>(CRYPTO_PATH, {});
 	}
 
-	getWeather(): Observable<any> {
-		return this.http.get<any>(WEATHER_PATH, {});
+	getWeather(city: string, country: string): Observable<any> {
+		return this.http.get<any>(WEATHER_PATH + `/${city}/${country}`, {});
 	}
 
 	addNewsToFavourites(newsAction: any): Observable<any> {

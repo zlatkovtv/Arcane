@@ -1,6 +1,6 @@
 <!-- <p>{{weatherData.city.name}} - </p> -->
-<button mat-mini-fab id="weather-settings">
-    <mat-icon>info</mat-icon>
+<button mat-mini-fab id="weather-settings" (click)="chooseLocation()">
+    <mat-icon>settings</mat-icon>
 </button>
 <div id="weather-header">
     <div id="weather-image">
@@ -12,13 +12,13 @@
         </div>
     </div>
 </div>
-<div>
+<div id="future-container">
     <div class="weather-day mat-card" *ngFor="let day of next3Days">
         <span class="degrees">{{day.temperature | number: '1.0-0'}}&#176;</span>
         <div class="weather-icon">
             <img src={{day.getIconUrl()}} />
         </div>
-        <span>{{day.getDayOfWeek()}}</span>
+        <span>{{day.getDayOfWeek()}} | {{day.getHour()}}</span>
         <!-- <span></span>
         <span></span> -->
     </div>

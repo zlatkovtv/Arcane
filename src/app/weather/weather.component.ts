@@ -20,17 +20,16 @@ export class WeatherComponent implements OnInit {
 	}
 
 	getWeather() {
-		this.commonService.getWeather().subscribe(
+		var city = localStorage.getItem('city') || "Los Angeles";
+		var country = localStorage.getItem('country') || "US";
+		
+		this.commonService.getWeather(city, country).subscribe(
 			data => {
 				this.city = data.city.name;
 				this.country = data.city.country;
 				this.today = this.buildDay(data.list[0]);
 				
-				this.next3Days = [
-					this.buildDay(data.list[1]),
-					this.buildDay(data.list[2]),
-					this.buildDay(data.list[3])
-				];
+				this.next3Days = data.list.map(el => this.buildDay(el));
 			},
 			error => {
 				console.log(error);
@@ -38,7 +37,12 @@ export class WeatherComponent implements OnInit {
 		);
 	}
 
+	chooseLocation() {
+
+	}
+
 	private buildDay(dayInfo: any) {
+		var date: Date = new Date(dayInfo.dt_txt);
 		return {
 			temperature: dayInfo.main.temp - 273.15,
 			description: dayInfo.weather[0].main,
@@ -46,9 +50,12 @@ export class WeatherComponent implements OnInit {
 				return `http://openweathermap.org/img/wn/${dayInfo.weather[0].icon}@2x.png`;
 			},
 			getDayOfWeek() {
-				var date: Date = new Date(dayInfo.dt_txt);
 				var dayOfWeek = DAYS[date.getDay()];
 				return dayOfWeek;
+			},
+			getHour() {
+				var minutes = (date.getMinutes()<10?'0':'') + date.getMinutes();
+				return date.getHours() + ":" + minutes;
 			}
 		}
 	}

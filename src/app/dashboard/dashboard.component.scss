@@ -54,3 +54,8 @@
   app-crypto {
       padding: 0px;
   }
+
+  app-weather {
+      display: flex;
+      flex-direction: column;
+  }

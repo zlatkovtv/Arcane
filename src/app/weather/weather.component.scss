@@ -21,7 +21,7 @@
 
 #weather-today {
     width: 75%;
-    margin: -25px auto 20px auto;
+    margin: -80px auto 20px auto;
 }
 
 .weather-day {
@@ -43,4 +43,10 @@
     position: absolute;
     top: 32px;
     right: 32px;
+}
+
+#future-container {
+    height: 100%;
+    overflow-y: scroll;
+    max-height: 350px;
 }
