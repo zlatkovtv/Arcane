@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule, MatCardModule, MatButtonModule, MatListModule, MatProgressSpinnerModule, 
-	MatSidenavModule, MatIconModule, MatBottomSheetModule, MatDialogModule, MatInputModule, MatCheckboxModule } from '@angular/material';
+	MatSidenavModule, MatIconModule, MatBottomSheetModule, MatDialogModule, MatInputModule, MatCheckboxModule,
+	MatSnackBarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -66,6 +67,7 @@ import { WeatherPickerComponent } from './weather-picker/weather-picker.componen
 		MatDialogModule,
 		MatInputModule,
 		MatCheckboxModule,
+		MatSnackBarModule,
 		BrowserAnimationsModule,
 		FormsModule
 	],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
 import { WeatherPickerComponent } from '../weather-picker/weather-picker.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 @Component({
@@ -15,7 +16,7 @@ export class WeatherComponent implements OnInit {
 	private today: any;
 	private next3Days: any[];
 
-	constructor(private commonService: CommonService, public weatherPicker: MatDialog) { }
+	constructor(private commonService: CommonService, public weatherPicker: MatDialog, private snackBar: MatSnackBar) { }
 
 	ngOnInit() {
 		this.getWeather();
@@ -53,8 +54,13 @@ export class WeatherComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(result => {
 			localStorage.setItem('city', result.city);
 			localStorage.setItem('country', result.country);
+			this.showSuccess();
 			this.getWeather();
 		});
+	}
+
+	showSuccess() {
+		this.snackBar.open('Location successfully changed!');
 	}
 
 	private buildDay(dayInfo: any) {

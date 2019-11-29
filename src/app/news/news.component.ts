@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { SourcePickerComponent } from '../source-picker/source-picker.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { CommonService } from '../common.service';
 import { Article } from '../article';
@@ -16,7 +17,7 @@ export class NewsComponent implements OnInit {
 	currentIndex: number;
 	currentArticle: Article;
 
-	constructor(private commonService: CommonService, private sourcePicker: MatBottomSheet) {
+	constructor(private commonService: CommonService, private sourcePicker: MatBottomSheet, private snackBar: MatSnackBar) {
 		this.currentIndex = 0;
 		this.articles = [];
 	}
@@ -65,6 +66,7 @@ export class NewsComponent implements OnInit {
 		pickerRef.afterDismissed().subscribe((source) => {
 			localStorage.setItem('newsSource', source);
 			this.getArticles();
+			this.showSuccess();
 		});
 	}
 
@@ -93,6 +95,10 @@ export class NewsComponent implements OnInit {
 				console.log(error);
 			}
 		)
+	}
+
+	showSuccess() {
+		this.snackBar.open('News source successfully changed!');
 	}
 
 	private hashString(input: string) {
