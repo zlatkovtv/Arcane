@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../common.service';
+import { WeatherPickerComponent } from '../weather-picker/weather-picker.component';
+import { MatDialog } from '@angular/material/dialog';
 
-const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 @Component({
 	selector: 'app-weather',
 	templateUrl: './weather.component.html',
@@ -13,32 +15,46 @@ export class WeatherComponent implements OnInit {
 	private today: any;
 	private next3Days: any[];
 
-	constructor(private commonService: CommonService) { }
+	constructor(private commonService: CommonService, public weatherPicker: MatDialog) { }
 
 	ngOnInit() {
 		this.getWeather();
 	}
 
 	getWeather() {
-		var city = localStorage.getItem('city') || "Los Angeles";
-		var country = localStorage.getItem('country') || "US";
-		
+		var city = this.getCity();
+		var country = this.getCountry();
+
 		this.commonService.getWeather(city, country).subscribe(
 			data => {
 				this.city = data.city.name;
 				this.country = data.city.country;
 				this.today = this.buildDay(data.list[0]);
-				
 				this.next3Days = data.list.map(el => this.buildDay(el));
 			},
 			error => {
 				console.log(error);
+				localStorage.setItem('city', "Los Angeles");
+				localStorage.setItem('country', "US");
+				this.getWeather();
 			}
 		);
 	}
 
 	chooseLocation() {
+		const dialogRef = this.weatherPicker.open(WeatherPickerComponent, {
+			width: '300px',
+			data: {
+				city: this.getCity(),
+				country: this.getCountry()
+			}
+		});
 
+		dialogRef.afterClosed().subscribe(result => {
+			localStorage.setItem('city', result.city);
+			localStorage.setItem('country', result.country);
+			this.getWeather();
+		});
 	}
 
 	private buildDay(dayInfo: any) {
@@ -54,9 +70,17 @@ export class WeatherComponent implements OnInit {
 				return dayOfWeek;
 			},
 			getHour() {
-				var minutes = (date.getMinutes()<10?'0':'') + date.getMinutes();
+				var minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
 				return date.getHours() + ":" + minutes;
 			}
 		}
+	}
+
+	private getCity() {
+		return localStorage.getItem('city') || "Los Angeles";
+	}
+
+	private getCountry() {
+		return localStorage.getItem('country') || "US";
 	}
 }

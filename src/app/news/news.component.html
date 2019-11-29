@@ -1,8 +1,4 @@
-<div id="article-container" *ngIf="articles != null">
-    <button mat-mini-fab id="news-settings" (click)="openSourcePicker()">
-        <mat-icon>settings</mat-icon>
-    </button>
-
+<div class="article-container" *ngIf="articles.length !== 0">
     <h2>Extra extra, read all about it</h2>
     <!-- <div *ngFor="let article of articles"> -->
     <div class="author-info">
@@ -32,8 +28,15 @@
         </button>
     </div>
 </div>
+<div class="article-container" *ngIf="articles.length === 0">
+    <h1>No news for this source.</h1>
+</div>
 
+<button mat-mini-fab id="news-settings" (click)="openSourcePicker()">
+    <mat-icon>settings</mat-icon>
+</button>
+<!-- 
 <div *ngIf="articles == null" class="spinner-container">
     <mat-progress-spinner [color]="primary" [mode]="'indeterminate'">
     </mat-progress-spinner>
-</div>
+</div> -->

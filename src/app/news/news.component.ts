@@ -18,6 +18,7 @@ export class NewsComponent implements OnInit {
 
 	constructor(private commonService: CommonService, private sourcePicker: MatBottomSheet) {
 		this.currentIndex = 0;
+		this.articles = [];
 	}
 
 	ngOnInit() {
@@ -35,10 +36,11 @@ export class NewsComponent implements OnInit {
 				}
 
 				this.currentArticle = this.articles[this.currentIndex];
-				console.log(this.articles);
 			},
 			error => {
 				console.log(error);
+				localStorage.setItem('newsSource', 'cnn');
+				this.getArticles();
 			}
 		); 
 	}

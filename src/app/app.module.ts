@@ -19,6 +19,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { CoinInfoComponent } from './coin-info/coin-info.component';
 import { TodoComponent } from './todo/todo.component';
 import { SourcePickerComponent } from './source-picker/source-picker.component';
+import { WeatherPickerComponent } from './weather-picker/weather-picker.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { SourcePickerComponent } from './source-picker/source-picker.component';
 		WeatherComponent,
 		CoinInfoComponent,
 		TodoComponent,
-		SourcePickerComponent
+		SourcePickerComponent,
+		WeatherPickerComponent
 	],
 	imports: [
 		BrowserModule,
@@ -69,6 +71,7 @@ import { SourcePickerComponent } from './source-picker/source-picker.component';
 	],
 	providers: [],
 	bootstrap: [AppComponent],
-	entryComponents: [SourcePickerComponent],
+	entryComponents: [SourcePickerComponent, 
+	WeatherPickerComponent],
 })
 export class AppModule { }

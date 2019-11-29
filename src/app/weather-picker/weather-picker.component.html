@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Choose city and country</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.city" placeholder="City">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.country" placeholder="Country">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button id="change-button" [mat-dialog-close]="data" cdkFocusInitial>Change</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+</div>

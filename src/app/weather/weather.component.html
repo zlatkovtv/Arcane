@@ -2,7 +2,7 @@
 <button mat-mini-fab id="weather-settings" (click)="chooseLocation()">
     <mat-icon>settings</mat-icon>
 </button>
-<div id="weather-header">
+<div id="weather-header" *ngIf="today">
     <div id="weather-image">
         <img src="assets/leaves.jpg" />
         <div class="mat-card" id="weather-today">
@@ -12,14 +12,12 @@
         </div>
     </div>
 </div>
-<div id="future-container">
+<div id="future-container" *ngIf="next3Days">
     <div class="weather-day mat-card" *ngFor="let day of next3Days">
         <span class="degrees">{{day.temperature | number: '1.0-0'}}&#176;</span>
         <div class="weather-icon">
             <img src={{day.getIconUrl()}} />
         </div>
         <span>{{day.getDayOfWeek()}} | {{day.getHour()}}</span>
-        <!-- <span></span>
-        <span></span> -->
     </div>
 </div>
