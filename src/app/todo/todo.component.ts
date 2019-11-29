@@ -1,31 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CommonService } from '../common.service';
+
+// TODO CHANGE
+const userId = 1;
+
 @Component({
 	selector: 'app-todo',
 	templateUrl: './todo.component.html',
 	styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
+	
 	newTodo: string;
 	todos: string[];
 
-	constructor() { }
+	constructor(private commonService: CommonService) { }
 
 	ngOnInit() {
-		this.todos = [];
-		// api get todos
+		this.getTodos();
+	}
+
+	getTodos() {
+		this.commonService.getTodos(userId).subscribe(
+			todos => {
+				this.todos = todos.map(todo => {
+					return todo.description;
+				});
+			},
+			error => {
+				console.log(error);
+			}
+		);
 	}
 
 	createTodo() {
-		console.log(this.newTodo);
-		this.todos.push(this.newTodo);
-		this.newTodo = '';
-		// save to DB
+		this.commonService.saveTodo(userId, this.newTodo).subscribe(
+			res => {
+				this.todos.unshift(this.newTodo);
+				this.newTodo = '';
+			},
+			error => {
+				console.log(error);
+			}
+		);
 	}
 
 	completeTodo(index) {
-		if (index > -1) {
-			this.todos.splice(index, 1);
-		}
+		this.commonService.completeTodo(userId, this.todos[index]).subscribe(
+			res => {
+				this.todos.splice(index, 1);
+			},
+			error => {
+				console.log(error);
+			}
+		);
 	}
 }

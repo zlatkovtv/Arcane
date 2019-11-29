@@ -1,9 +1,7 @@
 <h2>Good morning, user!</h2>
 <p>Go ahead and get some money!</p>
-<div>
-	<div *ngFor="let todo of todos; let i = index">
-		<mat-checkbox class="todo-checkbox" (click)="completeTodo(i)">{{todo}}</mat-checkbox>
-	</div>
+<div id="todo-container">
+	<mat-checkbox *ngFor="let todo of todos; let i = index" class="todo-checkbox" (click)="completeTodo(i)">{{todo}}</mat-checkbox>
 </div>
 
 <form class="example-form">
