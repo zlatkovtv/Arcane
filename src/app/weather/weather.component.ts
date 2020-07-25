@@ -35,9 +35,6 @@ export class WeatherComponent implements OnInit {
 			},
 			error => {
 				console.log(error);
-				localStorage.setItem('city', "Los Angeles");
-				localStorage.setItem('country', "US");
-				this.getWeather();
 			}
 		);
 	}

@@ -40,8 +40,6 @@ export class NewsComponent implements OnInit {
 			},
 			error => {
 				console.log(error);
-				localStorage.setItem('newsSource', 'cnn');
-				this.getArticles();
 			}
 		); 
 	}
